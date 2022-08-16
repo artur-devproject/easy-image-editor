@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="editor lock">
+        <div class="editor__header">
+            <h2>Easy Image Editor</h2>
+        </div>
+        <div class="editor__body">
+            <div class="filter__area">
+                <div>
+                    <h3>Filters</h3>
+                    <div id="filter_box"></div>
+                </div>
+                <div>
+                    <h3>Rotate & Flip</h3>
+                    <div class="filter__rotate">
+                        <button id="rotate_left_btn" class="filter__rotate-btn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                        <button id="rotate_right_btn" class="filter__rotate-btn"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button id="flipX_btn" class="filter__rotate-btn"><i class="fa-solid fa-arrows-left-right"></i></button>
+                        <button id="flipY_btn" class="filter__rotate-btn"><i class="fa-solid fa-arrows-up-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="image__area">
+                <img id="placeholder" src="placeholder.svg">
+                <img id="image">
+            </div>
+        </div>
+        <div class="editor__footer">
+            <button id="reset_btn">RESET FILTERS</button>
+            <div>
+                <button id="choose_btn" >CHOOSE IMAGE</button>
+                <input type="file" id="file_input" accept="image/*">
+                <button id="save_btn">SAVE IMAGE</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script/file.js"></script>
+    <script src="script/filter.js"></script>
+    <script src="script/transform.js"></script>
+</body>
+</html>
