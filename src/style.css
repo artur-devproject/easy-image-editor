@@ -33,11 +33,28 @@ body {
     opacity: 0.6;
     pointer-events: none;
 }
+@media(max-width: 900px) {
+    .container {
+        margin: 0;
+        width: 100%;
+    }
+    .editor {
+        padding: 30px;
+        border-radius: 0;
+        background: #fff;
+        box-shadow: none;
+    }
+}
 
 /* HEADER */
 
 .editor__header {
     margin-bottom: 30px;
+}
+@media(max-width: 900px) {
+    .editor__header {
+        text-align: center;
+    }
 }
 
 /* BODY */
@@ -47,8 +64,48 @@ body {
     align-items: stretch;
     justify-content: center;
 }
+
 .editor__body > *:not(:last-child) {
     margin-right: 15px;
+}
+.footer {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.editor__button {
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media(max-width: 900px) {
+    .editor__body {
+        flex-direction: column-reverse;
+    }
+    .editor__body > * {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .editor__body > *:not(:last-child) {
+        margin-right: 0px;
+    }
+    .editor__filter {
+        margin-top: 30px;
+    }
+}
+@media(max-width: 425px) {
+    .footer {
+        margin-top: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .editor__button {
+        margin-bottom: 10px;
+        flex: 1 0 100%;
+    }
 }
 
 /* FILTER */
@@ -122,7 +179,23 @@ body {
 ._unvisible {
     display: none;
 }
-
+#reset_btn {
+    background: transparent;
+    border: 1px solid #aaa;
+    color: #555;
+}
+#reset_btn:hover {
+    background: slateblue;
+    border: 1px solid slateblue;
+    color: #fff;
+}
+@media(max-width: 900px) {
+    .filter__area {
+        padding: 0px;
+        width: 100%;
+        border: none;
+    }
+}
 
 /* IMAGE */
 
@@ -142,31 +215,8 @@ body {
 .image__area #image {
     object-fit: contain; 
 }
-
-
-/* FOOTER */
-
-.editor__footer {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.editor__footer button {
-    padding: 12px 16px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-}
-#reset_btn {
-    background: transparent;
-    border: 1px solid #aaa;
-    color: #555;
-}
-#reset_btn:hover {
-    background: slateblue;
-    border: 1px solid slateblue;
-    color: #fff;
+.editor__image .footer {
+    justify-content: flex-end;
 }
 #choose_btn {
     background: #555;
@@ -182,4 +232,12 @@ body {
     background: slateblue;
     border: 1px solid slateblue;
     color: #fff;
+}
+@media(max-width: 900px) {
+    .image__area {
+        width: 100%;
+        height: auto;
+        border-radius: 0px;
+        overflow: hidden;
+    }
 }
