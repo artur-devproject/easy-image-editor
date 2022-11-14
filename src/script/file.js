@@ -23,17 +23,23 @@ function saveImage() {
     const fil = filterSet.reduce((acc, filter) => {
         let add = ' ' + filter.css + '(' + filter.input.value + '%' + ')'
         return acc + add
-    })
+    }, '')
+    ctx.filter = fil.toString()
 
-    console.log(fil.toString())
+    const flipX = transformState['flip'].scaleX
+    const flipY = transformState['flip'].scaleY
+    ctx.scale(flipX, flipY)
+    ctx.drawImage(
+        image, 
+        flipX==-1 ? canvas.width * flipX : 0, 
+        flipY==-1 ? canvas.height * flipY : 0, 
+        canvas.width, 
+        canvas.height
+    )
 
-    ctx.scale(transformState['flip'].scaleX, transformState['flip'].scaleY)
-
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
-document.body.append(canvas)
     const link = document.createElement('a')
     link.download = file.name + '.' + Date.now() + '.jpg'
-    link.href = canvas.toDataURL()
+    link.href = canvas.toDataURL('image/jpeg')
     link.click()
 }
 
